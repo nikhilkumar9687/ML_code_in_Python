@@ -27,7 +27,7 @@ Training The Polynomial regression model on dataset
 """
 from sklearn.preprocessing import PolynomialFeatures
 
-poly_reg = PolynomialFeatures(degree=11)
+poly_reg = PolynomialFeatures(degree=4)
 x_poly = poly_reg.fit_transform(x)
 lin_reg_2 = LinearRegression()
 lin_reg_2.fit(x_poly, y)
@@ -49,10 +49,11 @@ Visualising The Polynomial regression Results
 """
 plt.scatter(x, y, color = 'red')
 plt.plot(x, lin_reg_2.predict(poly_reg.fit_transform(x)), color = 'blue')
-plt.title('Truth or Bluff (Polynomial Regrssion)')
+plt.title('Truth or Bluff (Polynomial Regression)')
 plt.xlabel('Position Level')
 plt.ylabel('Salary')
 plt.show()
+
 """
 Visualising The Polynomial regression Results (with More precession and smoother Curve)
 """
@@ -69,10 +70,12 @@ plt.show()
 """
 Predicting a new Result with Linear Regression
 """
-
+lin_pred = lin_reg.predict([[6.5]])
+print(lin_pred)
 
 """
 Predicting a new Result with Polynomial Regression
 """
-
+poly_pred = lin_reg_2.predict(poly_reg.fit_transform([[6.5]]))
+print(poly_pred)
 
